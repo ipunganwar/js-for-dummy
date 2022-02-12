@@ -42,3 +42,6 @@ export default function Header ({ app }) {
   )
 }
 ```
+
+### How we can prevent Error if something changes in sharing component ?
+- We can use / create Error Boundary component to handle that 
