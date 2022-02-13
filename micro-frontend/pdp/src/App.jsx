@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./index.scss";
+import "remixicon/fonts/remixicon.css"
 
 import SafeComponent from "./SaveComponent";
 import Header from "home/Header";
