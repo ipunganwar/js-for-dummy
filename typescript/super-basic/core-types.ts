@@ -4,7 +4,8 @@ function add(n1:number, n2:number, showResult: boolean, phrase: string) {
   return phrase + result
 }
 
-const number1 = 2
+let number1
+number1 = 'a'
 const number2 = 5
 const printResult = true
 const resultPhrase = 'Result is '
