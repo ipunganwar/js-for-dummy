@@ -1,7 +1,7 @@
 const person: {
   name: string,
   age: number,
-  hobbies: string[],
+  hobbies: string[] // any[],
 } = {
   name: "jhon doe",
   age: 30,
