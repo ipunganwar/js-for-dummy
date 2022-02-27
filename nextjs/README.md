@@ -1,5 +1,17 @@
 # Basics & Foundations (Introducting Key Features)
 ## File-based Routing
+- Whats the different `NextJS` vs `ReactJS` in routing
+ - `NextJs` file-based routing
+  - no extra boilerplate code required
+  - File + folder structure (in `/pages/folder`) influences routes
+  - intuitives system
+  - Navigation works with <Link> component and imperatively
+
+ - `ReactJs` code-based routing
+  - Boilerplate setup in code required (<Switch>, <Route>, ...)
+  - File + folder setup does not matter all
+  - Navigation works with <Link> component and imperatively
+
 ### <u>The special /pages folder</u>
  NextJS will automatically look inside this folder to serving component
 
