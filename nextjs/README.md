@@ -1,9 +1,9 @@
 # Basics & Foundations (Introducting Key Features)
 ## File-based Routing
-### The special /pages folder
+### <u>The special /pages folder</u>
  NextJS will automatically look inside this folder to serving component
 
- ### How File-based routing works
+ ### <u>How File-based routing works</u>
   - /pages
     - index.js  --> Main starting page (my-domain.com/)
     - about.js  --> About page (my-domain.com/about)
@@ -11,7 +11,7 @@
       - index.js --> All products page (my-domain.com/products)
       - [id].js --> Product detail page --> All products page (my-domain.com/products/1)
 
-  ### Nested Dynamic Routes & Path
+  ### <u>Nested Dynamic Routes & Path</u>
   The dynamic part will threat as query param
 
   - /pages
@@ -22,7 +22,7 @@
         - index.js
         - [clientid].js   -> dynamic pages (my-domain.com/clients/id/clientid)
 
-  ### Catch All Routes
+  ### <u>Catch All Routes</u>
   - Whats the different
     - `[id].js` is handle for specific segment or routes
     - `[...params].js` is handle for deeper routes
@@ -33,6 +33,14 @@
         in console log will display like this:
         {
           slug: ['2022', 'js-basic']
+        }
+
+      ex: /articles/[...slug].js
+        my-domain.com/articles/what/ever/you/want
+
+        in console log will display like this:
+        {
+          slug: ['what', 'ever', 'you', 'want']
         }
     `
 
