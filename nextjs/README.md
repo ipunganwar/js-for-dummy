@@ -49,6 +49,40 @@
   ### NextJS Navigation
   - `useRouter` --> `next/router`
   - `Link` --> `next/link`
+    - How to use dynamic Link
+
+  ```
+  const clients = [
+      {id: 'jhon', name: 'Jhon Doe'},
+      {id: 'max', name: 'Maximilian'}
+    ]
+
+    return (
+      <div>
+        <ul>
+        { clients.map(client => {
+          <li key={client.key}>
+            <Link href={`/clients/${client.id}`}>{client.name}</Link>
+          </li>
+        })}
+      </div>
+    )
+  ```
+
+  - How to use dynamic Link with passing query in Link
+    ```
+    { clients.map(client => {
+          <li key={client.key}>
+            <Link href={{
+              pathname: '/clients/[id]',
+              query: { id: client.id },
+            }}>{client.name}
+            </Link>
+          </li>
+        })}
+    ```
+  #### How to Handle 404
+  - Just create `404.js` in scope `/pages`, NextJS will Automatically redirect into that component if server return 404 
 
 
 
