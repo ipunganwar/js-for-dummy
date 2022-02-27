@@ -4,23 +4,23 @@
  NextJS will automatically look inside this folder to serving component
 
  ### <u>How File-based routing works</u>
-  - /pages
-    - index.js  --> Main starting page (my-domain.com/)
-    - about.js  --> About page (my-domain.com/about)
-    - /products
-      - index.js --> All products page (my-domain.com/products)
-      - [id].js --> Product detail page --> All products page (my-domain.com/products/1)
+  - `/pages`
+    - `index.js`  --> Main starting page (`my-domain.com/`)
+    - `about.js`  --> About page (`my-domain.com/about`)
+    - `/products`
+      - `index.js` --> All products page (`my-domain.com/products`)
+      - `[id].js` --> Product detail page --> All products page (`my-domain.com/products/1`)
 
   ### <u>Nested Dynamic Routes & Path</u>
   The dynamic part will threat as query param
 
-  - /pages
-    - index.js
-    - /clients
-      - index.js
-      - /[id]   --> dynamic folder name (my-domain.com/clients/id)
-        - index.js
-        - [clientid].js   -> dynamic pages (my-domain.com/clients/id/clientid)
+  - `/pages`
+    - `index.js`
+    - `/clients`
+      - `index.js`
+      - `/[id]`  --> dynamic folder name (`my-domain.com/clients/id`)
+        - `index.js`
+        - `[clientid].js`   -> dynamic pages (`my-domain.com/clients/id/clientid`)
 
   ### <u>Catch All Routes</u>
   - Whats the different
