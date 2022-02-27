@@ -11,6 +11,17 @@
       - index.js --> All products page (my-domain.com/products)
       - [id].js --> Product detail page --> All products page (my-domain.com/products/1)
 
+  #### Nested Dynamic Routes & Path
+  The dynamic part will threat as query param
+
+  - /pages
+    - index.js
+    - /clients
+      - index.js
+      - /[id]   --> dynamic folder name (my-domain.com/clients/id)
+        - index.js
+        - [clientid].js   -> dynamic pages (my-domain.com/clients/id/clientid)
+
 
 ## Page Pre-rendering & Data Fetching
 ## Combining "Standart React" & Nextjs
