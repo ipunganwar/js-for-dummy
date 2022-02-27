@@ -26,7 +26,7 @@
   - Whats the different
     - `[id].js` is handle for specific segment or routes
     - `[...params].js` is handle for deeper routes
-     `
+     ```
       ex: /articles/[...slug].js
         my-domain.com/articles/2022/js-basic
 
@@ -42,7 +42,7 @@
         {
           slug: ['what', 'ever', 'you', 'want']
         }
-    `
+    ```
 
     - for best practice, in this project i used name `[...slug].js`
 
