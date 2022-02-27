@@ -46,6 +46,10 @@
 
     - for best practice, in this project i used name `[...slug].js`
 
+  ### NextJS Navigation
+  - `useRouter` --> `next/router`
+  - `Link` --> `next/link`
+
 
 
 ## Page Pre-rendering & Data Fetching
