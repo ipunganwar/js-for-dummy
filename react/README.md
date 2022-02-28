@@ -1,5 +1,6 @@
 # ReactJS Hooks
 
+# useState
 ## React useState Basic Functionality
 - Hooks only can use inside `function component`, can't use in `class component`
 - Hooks only can use in top level, cant use in nested condition
@@ -47,4 +48,34 @@ function stateInitial () {
 }
 
 const [value, setterValue] = useState(() => stateInitial())
+```
+
+
+
+# useEffect
+What is useEffect mean ?
+- useEffect is a hook for encapsulating code that has 'side effects,' and is like a combination of componentDidMount , componentDidUpdate , and componentWillUnmount . Previously, functional components didn't have access to the component life cycle, but with useEffect you can tap into it
+
+> https://codeburst.io/quick-intro-to-react-hooks-6dd8ecb898ed
+
+## How useEffect works
+- useEffect is triggered when we passing state that will change
+- structure like this:
+```
+useEffect(() => {}, [state])
+```
+- When you passing empty state in useEffect, it will working only in mounted lifecycle & never triggered again if we not passing state
+```
+useEffect(() => { console.log('mounted') }, [])
+```
+
+## How to Clean up our useEffect from last changes (unmounted)
+- We need run return value to clean up latest changes in useEffect
+```
+useEffect(() => {
+  window.addEventListener('resize', handleResize)
+  return () => {
+    window.removeEventListener('resize', handleResize)
+  }
+}, [windowWidth])
 ```
