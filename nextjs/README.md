@@ -97,6 +97,10 @@
   - Just create `404.js` in scope `/pages`, NextJS will Automatically redirect into that component if server return 404 
 
 
+# Static Site Generator
+ - pre-generated a page (with data prepared on the server-side) during build time
+ - Pages are prepared ahead to time and can be cached by the server / CDN serving the app
+    
 
 ## Page Pre-rendering & Data Fetching
 ## Combining "Standart React" & Nextjs
