@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import useSWR from "swr"
 
-export default function LastSalesPage () {
+export default function LastSalesPage (props) {
   // Traditionnaly using useEffect
 
   // const [sales, setSales] = useState()
@@ -27,7 +27,7 @@ export default function LastSalesPage () {
   //   })
   // }, [])
 
-  const [sales, setSales] = useState()
+  const [sales, setSales] = useState(props.sales)
 
   const fetcher = url => fetch(url).then(r => r.json())
 
@@ -36,7 +36,6 @@ export default function LastSalesPage () {
     fetcher
   )
   useEffect(() => {
-    console.log('>>', data)
     if (data) {
       const intoArray = []
 
@@ -55,7 +54,7 @@ export default function LastSalesPage () {
     return <p>Failed to load</p>
   }
 
-  if (!data || !sales ) {
+  if (!data && !sales ) {
     return <p>Loading ...</p>
   }
 
@@ -68,4 +67,26 @@ export default function LastSalesPage () {
       ))}
     </ul>
   )
+}
+
+export async function getStaticProps () {
+  return fetch('https://nextjs-course-5507c-default-rtdb.asia-southeast1.firebasedatabase.app/sales.json')
+  .then(response => response.json())
+  .then(data => {
+    const intoArray = []
+
+    for (const key in data) {
+      intoArray.push({
+        id: key,
+        username: data[key].username,
+        volume: data[key].volume
+      })
+    }
+
+    return {
+      props: {
+        sales: intoArray,
+      }
+    }
+  })
 }

@@ -56,4 +56,9 @@ source: https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
 - we can use nextjs hooks 3rd-party (SWR) to handling fetch/request data
 
 ## SWR
+- swr is 3rd party create by core team from nextjs, it scope will handling hooks like fetching, cache and the other.
 - Source: `https://swr.vercel.app/docs/with-nextjs`
+
+# Combining Fetch from Server and Client-side
+- using `getStaticProps` OR `getServerSideProps` to handling fetch, in this case we can't use `swr` / `react hooks` because it is in nextjs scope.
+- we can combine this method, if we want to combine fetching from server and client stimously to revalidate the reponse and skip the `Loading` state
