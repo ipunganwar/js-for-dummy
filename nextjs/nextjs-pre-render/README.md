@@ -29,3 +29,7 @@ source: https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
 - Since the getStaticPaths must manually registered our [id] to pre-generated, we can use `fallback` mode to `true`
 
 `source`: `https://nextjs.org/docs/basic-features/data-fetching/get-static-paths`
+
+## Fallback Mode
+- true --> need handling with condition if the `[id]` not found
+- `bloking` --> don't need handling with condition, but sometimes longer than true becase in next side need parsing the page 
