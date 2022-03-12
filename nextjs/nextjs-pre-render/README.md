@@ -23,5 +23,9 @@ source: https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
 
 ## getStaticPaths
 - this function will help us to create this dynamic [id] blueprint for pages
+- when you run build, the dynamic page will include in build.
+
+## Issue: what if our app had an thousand of dynamic id ?
+- Since the getStaticPaths must manually registered our [id] to pre-generated, we can use `fallback` mode to `true`
 
 `source`: `https://nextjs.org/docs/basic-features/data-fetching/get-static-paths`
