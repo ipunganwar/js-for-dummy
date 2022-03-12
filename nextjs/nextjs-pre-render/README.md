@@ -1,7 +1,7 @@
 # Pre-Rendering
 - Static Generation
 - Server Side Generation
-## Static Generation
+# Static Generation
 - getStaticProps
 - getStaticPaths
 ### About getStaticProps
@@ -42,7 +42,18 @@ source: https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
 
 
 
-## Server Side Rendering
+# Server Side Rendering
 - Sometimes, you need to pre-render every request OR you need access to the request objct (e.g cookies)
+- getStaticProps
+- getServerSideProps
 
-### getServerSideProps
+### getServerSideProps Context
+- we can get most information (e.g request etc) in context better then `getStaticProps`
+
+
+# Client Side Data-Fetching
+- we can use react hooks like useEffect to request/fetch data OR
+- we can use nextjs hooks 3rd-party (SWR) to handling fetch/request data
+
+## SWR
+- Source: `https://swr.vercel.app/docs/with-nextjs`
