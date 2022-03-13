@@ -61,4 +61,4 @@ source: https://nextjs.org/docs/api-reference/data-fetching/get-initial-props
 
 # Combining Fetch from Server and Client-side
 - using `getStaticProps` OR `getServerSideProps` to handling fetch, in this case we can't use `swr` / `react hooks` because it is in nextjs scope.
-- we can combine this method, if we want to combine fetching from server and client stimously to revalidate the reponse and skip the `Loading` state
+- we can combine this method, if we want to combine fetching from server and client stimously to revalidate the response and skip the `Loading` state
