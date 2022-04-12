@@ -10,6 +10,7 @@ class ProjectInput {
     this.templateElement = document.getElementById('project-input')! as HTMLTemplateElement
     this.hostElement = document.getElementById('app')! as HTMLDivElement
 
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/importNode
     const importedNode = document.importNode(this.templateElement.content, true)
     this.element = importedNode.firstElementChild as HTMLFormElement
     this.element.id = 'user-input'
@@ -32,6 +33,7 @@ class ProjectInput {
   }
 
   private attach () {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
     this.hostElement.insertAdjacentElement('afterbegin', this.element)
   }
 }
