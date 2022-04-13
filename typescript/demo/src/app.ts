@@ -1,3 +1,39 @@
+// Validation
+interface Validation {
+  value: string | number,
+  required?: boolean,
+  minLength?: number,
+  maxLength?: number,
+  min?: number,
+  max?: number,
+}
+
+function validate (validateInput: Validation) {
+  let isValid = true
+
+  if (validateInput.required) {
+    isValid = isValid && validateInput.value.toString().trim().length !== 0
+  }
+
+  if (validateInput.minLength != null && typeof validateInput.value === 'string') {
+    isValid = isValid && validateInput.value.length > validateInput.minLength
+  }
+
+  if (validateInput.maxLength != null && typeof validateInput.value === 'string') {
+    isValid = isValid && validateInput.value.length < validateInput.maxLength
+  }
+
+  if (validateInput.min != null && typeof validateInput.value === 'number') {
+    isValid = isValid && validateInput.value > validateInput.min
+  }
+
+  if (validateInput.max != null && typeof validateInput.value === 'number') {
+    isValid = isValid && validateInput.value < validateInput.max
+  }
+
+  return isValid
+}
+
 // autobind decorator
 function autobind (
   _: any,
@@ -41,10 +77,39 @@ class ProjectInput {
     this.attach()
   }
 
+  private clearInput () {
+    this.titleInputElement.value = ''
+    this.descriptionInputElement.value = ''
+    this.peopleInputElement.value = ''
+  }
+
+  private gatherUserInput(): [string, string, number] | void {
+    const enteredTitle = this.titleInputElement.value
+    const enteredDescription = this.descriptionInputElement.value
+    const enteredPeople = this.peopleInputElement.value
+
+    if (
+      !validate({ value: enteredTitle, required: true, minLength: 5 }) ||
+      !validate({ value: enteredDescription, required: true, minLength: 5 }) ||
+      !validate({ value: enteredDescription, required: true, min: 1, max: 5 })
+    ) {
+      alert('Invalid input, please try again later')
+      return
+    } else {
+      return [enteredTitle, enteredDescription, +enteredPeople]
+    }
+  }
+
   @autobind
   private submitHandler (event: Event) {
     event.preventDefault()
-    console.log(this.titleInputElement.value)
+    const userInput = this.gatherUserInput()
+    
+    if (Array.isArray(userInput)) {
+      const [title, desc, people] = userInput
+      console.log(title, desc, people)
+      this.clearInput()
+    }
   }
 
   private configure () {
