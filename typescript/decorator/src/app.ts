@@ -1,13 +1,15 @@
-function Logger (logString: string) {
+function Logger (_logString: string) {
   return function (constructor: Function) {
-    console.log(logString)
+    // console.log(logString)
   console.log(constructor)
   }
 }
 
 function withTemplate (template: string, hookId: string) {
   console.log('TEMPLATE FACTORY')
-  return function<T extends {new(...args: any[]): {name: string}}>(originalConstructor: T) {
+  return function<T extends {new(...args: any[]): {name: string}}>(
+    originalConstructor: T
+  ) {
     console.log(originalConstructor)
     return class extends originalConstructor {
       constructor (..._: any[]) {
@@ -95,3 +97,32 @@ class Product {
 
 const p1 = new Product('Book', 19)
 const p2 = new Product('Chair', 20)
+
+
+// --
+
+function Autobind (_target: any, _methodName: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value
+  const adjDescriptor: PropertyDescriptor = {
+    configurable: true,
+    enumerable: false,
+    get() {
+      const boundFn = originalMethod.bind(this)
+      return boundFn
+    }
+  }
+  return adjDescriptor
+}
+class Printer {
+  message = 'this works !'
+
+  @Autobind
+  showMessage () {
+    console.log(this.message)
+  }
+}
+
+const p = new Printer()
+
+const button = document.querySelector('button')!
+button.addEventListener('click', p.showMessage)
