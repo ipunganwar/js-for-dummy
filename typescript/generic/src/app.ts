@@ -1,4 +1,4 @@
-function merge<T extends object, U>(objA: T, objB: U) {
+function merge<T extends object, U extends object>(objA: T, objB: U) {
   return Object.assign(objA, objB)
 }
 
@@ -7,4 +7,20 @@ function merge<T extends object, U>(objA: T, objB: U) {
 // }
 
 const mergedObj = merge({name: 'Max', hobbies: ['Sport']}, {age: 30})
-console.log(mergedObj.hobbies)
+console.log(mergedObj)
+
+
+interface Lengthy {
+  length: number
+}
+
+function countAndDescribe<T extends Lengthy> (element: T): [T, string] {
+  let descriptionText = 'Got no value.'
+
+  if (element.length > 0) {
+    descriptionText = 'Got ' + element.length + ' elements'
+  }
+  return [element, descriptionText]
+}
+
+console.log(countAndDescribe('Hi there !'))
