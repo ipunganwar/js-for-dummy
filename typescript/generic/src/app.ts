@@ -61,3 +61,37 @@ const numberStorage = new DataStorage<number>()
 // objStorage.addItem({ name: 'Manu' })
 // objStorage.removeItem({ name: 'Max' })
 // console.log(objStorage.getItems())
+
+
+// UTILITY TYPES
+// --- Partial
+interface CourseGoal {
+  title: string
+  description: string
+  completeUntil: Date
+}
+
+function createCourseGoal (title: string, description: string, date: Date)
+: CourseGoal {
+  let courseGoal: Partial<CourseGoal> = {}
+  courseGoal.title = title
+  courseGoal.description = description
+  courseGoal.completeUntil = date
+  return courseGoal as CourseGoal
+}
+
+function createCourseGoal2 (fields: Partial<CourseGoal>) {
+  return { ...fields }
+}
+
+console.log('Partial utility ', createCourseGoal2({ description: 'coba aja masuk sini'}))
+
+// -- Required
+interface Props {
+  name: string
+  age: number
+  desc: string
+}
+
+const obj: Partial<Props> = { name: 'Max', age: 30}
+const obj2: Required<Props> = { name: 'Min', age: 20, desc: 'Humamn'}
