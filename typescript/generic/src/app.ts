@@ -95,3 +95,23 @@ interface Props {
 
 const obj: Partial<Props> = { name: 'Max', age: 30}
 const obj2: Required<Props> = { name: 'Min', age: 20, desc: 'Humamn'}
+
+// -- Readonly
+const names: Readonly<string[]> = ['Max', 'Min']
+// names.push('Mis')
+
+// -- Record
+interface CatInfo {
+  age: number
+  breed: string
+}
+
+type CatName = "miffy" | "boris" | "mordred"
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: "Persian" },
+  boris: { age: 10, breed: "Persian" },
+  mordred: { age: 10, breed: "Persian" }
+}
+
+console.log(cats.boris)
+
